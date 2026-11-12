@@ -379,9 +379,9 @@ export async function handlePlaylistPanelKeydown(e) {
 
     const isPlaylist = app.activePane === 'playlist';
 
-    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+    if (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "k" || e.key === "K" || e.key === "j" || e.key === "J") {
         e.preventDefault();
-        const dir = e.key === "ArrowUp" ? -1 : 1;
+        const dir = e.key === "ArrowUp" || e.key === "k" || e.key === "K" ? -1 : 1;
 
         if (isPlaylist) {
             if (!app.playlists.length) return;
@@ -447,11 +447,11 @@ export async function handlePlaylistPanelKeydown(e) {
         return;
     }
 
-    if (e.key === "ArrowLeft") {
+    if (e.key === "ArrowLeft" || e.key === "h" || e.key === "H") {
         e.preventDefault();
         app.activePane = 'playlist';
         await renderPlaylistPanel();
-    } else if (e.key === "ArrowRight") {
+    } else if (e.key === "ArrowRight" || e.key === "l" || e.key === "L") {
         e.preventDefault();
         app.activePane = 'song';
         await renderPlaylistPanel();
